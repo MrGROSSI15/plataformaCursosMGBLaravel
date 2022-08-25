@@ -27,4 +27,5 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+    const TYPES = ['PHP','JAVASCRIPT','JAVA','DISEÑO WEB','SERVIDORES','MYSQL','IMMODB',';LARAVEL','REACT'];
 }
