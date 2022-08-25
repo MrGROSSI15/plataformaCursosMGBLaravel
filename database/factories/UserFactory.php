@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Role;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -17,12 +18,18 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $name = fake()->name();
+        $last_name = fake()->lastName();
         return [
-            'name' => fake()->name(),
+            'name' =>  $name,
+            'role_id' => Role::all()->random()->id(),
+            'last_name' => $last_name,
+            'slug' => str_getcsv($name . " " . $last_name, "-"),
             'email' => fake()->safeEmail(),
             'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password, secret
             'remember_token' => Str::random(10),
+            'picture' => fake()->image( storage_path() . '/app/public/users', '200', '200', 'people', 'false')
         ];
     }
 

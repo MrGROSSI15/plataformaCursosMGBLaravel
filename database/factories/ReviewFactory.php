@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Course;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,8 @@ class ReviewFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'course_id' => Course::all()->random()->id(),
+            'rating' => fake()->randomFloat(2,1,5)
         ];
     }
 }

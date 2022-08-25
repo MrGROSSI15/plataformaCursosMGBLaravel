@@ -3,7 +3,9 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Role;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Storage;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,5 +22,13 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        Storage::deleteDirectory('courses');
+        Storage::deleteDirectory('users');
+
+        Storage::makeDirectory('courses');
+        Storage::makeDirectory('users');
+
+        factory(Role::class, 1)->create(['name' => 'admin']);
     }
 }

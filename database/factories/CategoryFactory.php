@@ -19,7 +19,7 @@ class CategoryFactory extends Factory
     {
         return [
             'name'=> fake()->randomElement(Category::TYPES),
-            'description'=>fake()->paragraph(),
+            'description'=>fake()->paragraph
 
         ];
     }

@@ -17,7 +17,11 @@ class TeacherFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'user_id' => null,
+            'title' => fake()->jobTitle,
+            'biography' => fake()->paragraph,
+            'website_url' => fake()->url
+
         ];
     }
 }
