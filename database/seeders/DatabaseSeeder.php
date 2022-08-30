@@ -22,10 +22,10 @@ class DatabaseSeeder extends Seeder{
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        Storage::deleteDirectory('courses');
-        Storage::deleteDirectory('users');
-        Storage::makeDirectory('courses');
-        Storage::makeDirectory('users');
+        Storage::deleteDirectory('images/courses');
+        Storage::deleteDirectory('images/users');
+        Storage::makeDirectory('images/courses');
+        Storage::makeDirectory('images/users');
         Role::factory()->create(['name' => 'admin']);
         Role::factory()->create(['name' => 'teacher']);
         Role::factory()->create(['name' => 'student']);
