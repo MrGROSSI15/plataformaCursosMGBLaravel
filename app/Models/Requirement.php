@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -7,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * App\Models\Requirement
- *
  * @property int $id
  * @property int $course_id
  * @property string $requirement
@@ -24,7 +22,10 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Requirement whereUpdatedAt($value)
  * @mixin \Eloquent
  */
-class Requirement extends Model
-{
+class Requirement extends Model{
     use HasFactory;
+
+    public function course(){
+        return $this->belongsTo(Course::class);
+    }
 }

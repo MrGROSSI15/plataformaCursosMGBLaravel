@@ -3,7 +3,10 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Category;
+use App\Models\Course;
+use App\Models\Goal;
 use App\Models\Level;
+use App\Models\Requirement;
 use App\Models\Role;
 use App\Models\Student;
 use App\Models\Teacher;
@@ -55,6 +58,12 @@ class DatabaseSeeder extends Seeder{
         Level::factory()->create(['name' => 'Advanced']);
 
         Category::factory(5)->create();
+
+        Course::factory(50)->create()
+            ->each(function(Course $c){
+               $c->goals()->saveMany(Goal::factory(2)->create());
+               $c->requirements()->saveMany(Requirement::factory(4)->create());
+            });
 
     }
 }

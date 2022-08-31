@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -7,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * App\Models\Teacher
- *
  * @property int $id
  * @property int $user_id
  * @property string|null $title
@@ -28,7 +26,14 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Teacher whereWebsiteUrl($value)
  * @mixin \Eloquent
  */
-class Teacher extends Model
-{
+class Teacher extends Model{
     use HasFactory;
+
+    public function courses(){
+        return $this->hasMany(Course::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

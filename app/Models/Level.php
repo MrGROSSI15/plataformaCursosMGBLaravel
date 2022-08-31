@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -7,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * App\Models\Level
- *
  * @property int $id
  * @property string $name
  * @property string $description
@@ -24,7 +22,10 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Level whereUpdatedAt($value)
  * @mixin \Eloquent
  */
-class Level extends Model
-{
+class Level extends Model{
     use HasFactory;
+
+    public function course(){
+        return $this->hasOne(Course::class);
+    }
 }
