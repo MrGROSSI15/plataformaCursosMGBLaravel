@@ -17,7 +17,7 @@ class TeacherFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => null,
+            'user_id' => fake()->unique()->randomDigit(),
             'title' => fake()->jobTitle,
             'biography' => fake()->paragraph,
             'website_url' => fake()->url
