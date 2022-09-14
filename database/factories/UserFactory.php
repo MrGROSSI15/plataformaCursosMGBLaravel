@@ -25,7 +25,7 @@ class UserFactory extends Factory
             'role_id' => fake()->randomElement([Role::ADMIN, Role::TEACHER, Role::STUDENT]),
             'last_name' => $last_name,
             'slug' => str_replace(" ","-", $name . "-" . $last_name ),
-            'email' => fake()->safeEmail(),
+            'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password, secret
             'remember_token' => Str::random(10),

@@ -16,8 +16,9 @@ class RoleFactory extends Factory
      */
     public function definition()
     {
+        $name = ucwords(fake()->word);
         return [
-            'name' => fake()->word,
+            'name' => $name,
             'description' => fake()->paragraph
         ];
     }
